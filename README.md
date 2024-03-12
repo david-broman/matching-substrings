@@ -105,7 +105,7 @@ Start End   Length SubString
 ------------------------------
 ```
 
-We can now see that the algorithm produces two output sets, one for the matching of "ban" (two occurrences), and one for "na" (two occurrences)". In this case, the algorithm matched in total these substrings, marked in bold: "**na**med **ban**a**na** **ban**"
+We can now see that the algorithm produces two output sets, one for the matching of " ban" (two occurrences where each string consists of 4 characters, including the space at the beginning), and one for "na" (two occurrences)". In this case, the algorithm matched in total these substrings, marked in bold: "**na**med **ban**a**na** **ban**"
 
 Please see the reference implementation for details. There are several test cases that can be tried out by changing the value of variable `test_string`.
 
