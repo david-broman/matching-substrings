@@ -15,9 +15,9 @@ The overall problem may informally be stated as follows:
 
 Suppose we have an input string "banana". In these examples, the symbols are ASCII characters; the actual symbols can be of any type. The task is then to find the set of longest matching substrings. The substring "an" can be found twice, and so do "na". This means that any of these answers are correct. However, only one of the alternatives is valid simultaneously since the substrings "an" and "na" overlap.
 
-If instead the input string is "named banana ban", both "an" and "na" are valid repeats, where both are repeated three times, respectively. However, in this case we have *longer* matches: "ban" is repeated two times: "named **ban**ana **ban**". Hence, we would like the algorithm to report the longest match "ban" (2 times) *and* the rest of the matches that *do not overlap* with the longest match. In this case "an" overaps with `ban` such that there is just one instance of `an` that is not part of the "ban", as follows "named ban**an**a ban" . However, we have two "na" that do not overlap with "ban". That is: "**na**med bana**na** ban".
+If instead the input string is "named banana ban", both "an" and "na" are valid repeats, where both are repeated three times, respectively. However, in this case we have *longer* matches: " ban" is repeated two times: "named **ban**ana **ban**" (note that the string is length 4, including the space at the beginning). Hence, we would like the algorithm to report the longest match " ban" (2 times) *and* the rest of the matches that *do not overlap* with the longest match. In this case "an" overaps with " ban" such that there is just one instance of "an" that is not part of the " ban", as follows "named ban**an**a ban" . However, we have two "na" that do not overlap with " ban". That is: "**na**med bana**na** ban".
 
-Hence, in this case, the algorithm should report (i) that "ban" occurs two times, and "na" two times (non-overlapping), and (ii) at which indices these substrings occur.
+Hence, in this case, the algorithm should report (i) that " ban" occurs two times, and "na" two times (non-overlapping), and (ii) at which indices these substrings occur.
 
 ## The Algorithm and its Reference Implementation
 
