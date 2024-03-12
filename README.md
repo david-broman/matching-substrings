@@ -1,5 +1,5 @@
 
-# Algorithm: Quick matching of non-overlapping substrings
+# Algorithm: Quick Matching of Non-Overlapping Substrings
 
 This repo contains a reference algorithm for a new algorithm designed
 by David Broman in 2024 that matches non-overlapping substrings within
