@@ -25,12 +25,12 @@ In this repo, we provide a reference implementation in Python. The algorithm con
 
 1. **Suffix array and LCP array construction.** The first step of the algorithm is to construct a [suffix array](https://en.wikipedia.org/wiki/Suffix_array) and the associated [longest common prefix (LCP)](https://en.wikipedia.org/wiki/LCP_array) array. Algorithms exist to construct both these arrays at O(n) time. In the reference implementation, we simply use a standard library `divsufsort` for constructing the suffix array, and [Kasai's algorithm](https://link.springer.com/chapter/10.1007/3-540-48194-X_17) for constructing the LCP array.
 
-2. **Construct tuple list.** This is a preparation step that constructs an array of 3-tuples (called `a` in the implementation `a`), where each 3-tuple contains the following elements: `(l, m, k)`, where
+2. **Construct tuple list.** This is a preparation step that constructs an array of 3-tuples (called `a` in the implementation), where each 3-tuple contains the following elements: `(l, m, k)`, where
    * `l` = length of the set of equal strings
    * `m` = a marker that identifies each set that is equal
    * `k` = the start index of the position in the string
 
-   In the implementation, note that the length of 'l' is inverted (size of string minus l) to enable correct lexical sorting (max length, lowest index). Intuitively, we iterate through the suffix array and identify matching strings, saving the length `l` in the tuple. The marker `m` is used to identify each set that is equal (there might be several different strings that match with the same length). Finally, the index `k` is stored in the tuple, such that we can easily construct the matching strings afterward. The second step runs in O(n) time.
+   In the implementation, note that the length of `l` is inverted (size of string minus `l`) to enable correct lexical sorting (max length, lowest index). Intuitively, we iterate through the suffix array and identify matching strings, saving the length `l` in the tuple. The marker `m` is used to identify each set that is equal (there might be several different strings that match with the same length). Finally, the index `k` is stored in the tuple, such that we can easily construct the matching strings afterward. The second step runs in O(n) time.
 
 3. **Sorting of tuple list.** The next step lexically sorts the tuple list that was constructed in step 2. Specifically, the sorting is done in increasing order, such that the indices are sorted in increasing order and that the longest matches come first in the sorted list (recall the inverted length of `l`). This step runs in O(n log n) or O(n) depending on the sorting algorithm.
 
@@ -63,7 +63,7 @@ Start End   Length SubString
 ```
 The first lines state that the input string is "banana", and that the length of the input string is 6. Moreover, it prints out the suffix array (`sarray`) and the LCP.
 
-The next lines show the suffix array and the number of matches of characters, which is just another print output from the suffix array and the LCP. For instance, at index 3, we see that there are 3 symbols matching. This means that matching is at index 3 ("ban**ana**") and at the next occurrence in the suffix array, that is at index 1 ("b**ana**na"). Note, however, that these two substrings **are overlapping**. This is also the key problem for the algorithm, i.e., how to find the non-overlapping string.
+The next lines show the suffix array and the number of matches of characters, which is just another print output from the suffix array and the LCP. For instance, at index 3, we see that there are 3 symbols matching. This means that matching is at index 3 ("ban**ana**") and at the next occurrence in the suffix array, that is at index 1 ("b**ana**na"). Note, however, that these two substrings *are overlapping*. This is also the key problem for the algorithm, i.e., how to find the non-overlapping string.
 
 At the end of the output, we see the result of the matching algorithm. It reports that it found 2 occurrences of "an" (two lines of input), one starting at index 1, and one at index 3. They are guaranteed not to overlap.
 
